@@ -37,6 +37,7 @@
         ],
 
     ];
+    $parking;
 ?>
 
 <!DOCTYPE html>
@@ -50,5 +51,17 @@
     <title>PHP Hotel</title>
 </head>
 <body>
+    <h1>ECCO I NOSTRI HOTEL</h1>
+    <ul>
+        <?php foreach ($hotels as $hotel) {?>
+            <li>
+                <div>Hotel name: <?php echo $hotel['name']; ?></div>
+                <div>Hotel description: <?php echo $hotel['description']; ?></div>
+                <div>Hotel parking available: <?php echo $parking = $hotel['parking'] ? 'available' : 'not available'; ?></div>
+                <div>Hotel users vote: <?php echo $hotel['vote']; ?>/5</div>
+                <div>Hotel distance to center: <?php echo $hotel['distance_to_center']; ?> km</div>
+            </li>
+        <?php } ?>
+    </ul>
 </body>
 </html>
