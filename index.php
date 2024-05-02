@@ -37,8 +37,8 @@
         ],
 
     ];
-    $parking;
     $hotelInfo = ['Hotels', 'Description', 'Parking available', 'Users vote', 'Distance to center'];
+    $parkingChoice = isset($_GET['parking-choice']) ? $_GET['parking-choice'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -53,16 +53,42 @@
 </head>
 <body>
     <h1>ECCO I NOSTRI HOTEL</h1>
+    <form method="get">
+        <label for="parking-available">Parking available</label>
+        <input type="radio" id="parking-available" name="parking-choice" value="true">
+        <label for="parking-not-available">Parking not available</label>
+        <input type="radio" id="parking-not-available" name="parking-choice" value="false">
+        <button type="submit">Filter Search</button>
+    </form>
     <!-- Hotels simple list -->
     <ul>
-        <?php foreach ($hotels as $hotel) {?>
-            <li>
-                <div>Hotel name: <?php echo $hotel['name']; ?></div>
-                <div>Hotel description: <?php echo $hotel['description']; ?></div>
-                <div>Hotel parking available: <?php echo $parking = $hotel['parking'] ? 'available' : 'not available'; ?></div>
-                <div>Hotel users vote: <?php echo $hotel['vote']; ?>/5</div>
-                <div>Hotel distance to center: <?php echo $hotel['distance_to_center']; ?> km</div>
-            </li>
+        <?php foreach ($hotels as $hotel) {
+            $parking = $hotel['parking'] ? 'available' : 'not available';
+            if (empty($parkingChoice) || $parkingChoice === '') {?>
+                <li>
+                    <div>Hotel name: <?php echo $hotel['name']; ?></div>
+                    <div>Hotel description: <?php echo $hotel['description']; ?></div>
+                    <div>Hotel parking available: <?php echo $parking; ?></div>
+                    <div>Hotel users vote: <?php echo $hotel['vote']; ?>/5</div>
+                    <div>Hotel distance to center: <?php echo $hotel['distance_to_center']; ?> km</div>
+                </li>
+            <?php } else if($parkingChoice == 'true' && $parking == 'available'){ ?>
+               <li>
+                    <div>Hotel name: <?php echo $hotel['name']; ?></div>
+                    <div>Hotel description: <?php echo $hotel['description']; ?></div>
+                    <div>Hotel parking available: <?php echo $parking; ?></div>
+                    <div>Hotel users vote: <?php echo $hotel['vote']; ?>/5</div>
+                    <div>Hotel distance to center: <?php echo $hotel['distance_to_center']; ?> km</div>
+                </li> 
+            <?php } else if($parkingChoice == 'false' && $parking == 'not available'){ ?>
+                <li>
+                    <div>Hotel name: <?php echo $hotel['name']; ?></div>
+                    <div>Hotel description: <?php echo $hotel['description']; ?></div>
+                    <div>Hotel parking available: <?php echo $parking; ?></div>
+                    <div>Hotel users vote: <?php echo $hotel['vote']; ?>/5</div>
+                    <div>Hotel distance to center: <?php echo $hotel['distance_to_center']; ?> km</div>
+                </li>
+            <?php } ?>
         <?php } ?>
     </ul>
     <!-- /Hotels simple list -->
