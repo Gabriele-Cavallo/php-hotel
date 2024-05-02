@@ -39,7 +39,7 @@
     ];
     $hotelInfo = ['Hotels', 'Description', 'Parking available', 'Users vote', 'Distance to center'];
     $parkingChoice = isset($_GET['parking-choice']) ? $_GET['parking-choice'] : '';
-    $usersScore = isset($_GET['score-filter']) ? $_GET['score-filter'] : '';
+    $usersScore = isset($_GET['score-filter']) ? $_GET['score-filter'] : 0;
     $usersScoreNumber = (int)$usersScore;
 ?>
 
