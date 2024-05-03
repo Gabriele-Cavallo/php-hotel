@@ -66,14 +66,14 @@
             <span>Users hotel score: </span>
             <label for="score-one">1</label>
             <input type="radio" id="score-one" name="score-filter" value="1">
-            <label for="score-one">2</label>
-            <input type="radio" id="score-one" name="score-filter" value="2">
-            <label for="score-one">3</label>
-            <input type="radio" id="score-one" name="score-filter" value="3">
-            <label for="score-one">4</label>
-            <input type="radio" id="score-one" name="score-filter" value="4">
-            <label for="score-one">5</label>
-            <input type="radio" id="score-one" name="score-filter" value="5">
+            <label for="score-two">2</label>
+            <input type="radio" id="score-two" name="score-filter" value="2">
+            <label for="score-three">3</label>
+            <input type="radio" id="score-three" name="score-filter" value="3">
+            <label for="score-four">4</label>
+            <input type="radio" id="score-four" name="score-filter" value="4">
+            <label for="score-five">5</label>
+            <input type="radio" id="score-five" name="score-filter" value="5">
         </div>
         <button type="submit">Filter Search</button>
     </form>
