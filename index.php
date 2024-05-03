@@ -58,22 +58,22 @@
     <form method="get">
         <div class="parking-filter">
             <label for="parking-available">Parking available</label>
-            <input type="radio" id="parking-available" name="parking-choice" value="true">
+            <input <?php echo $parkingChoice == 'true' ? 'checked' : '';?> type="radio" id="parking-available" name="parking-choice" value="true">
             <label for="parking-not-available">Parking not available</label>
-            <input type="radio" id="parking-not-available" name="parking-choice" value="false">
+            <input <?php echo $parkingChoice == 'false' ? 'checked' : '';?> type="radio" id="parking-not-available" name="parking-choice" value="false">
         </div>
         <div class="vote-filter">
             <span>Users hotel score: </span>
             <label for="score-one">1</label>
-            <input type="radio" id="score-one" name="score-filter" value="1">
+            <input <?php echo $usersScore == '1' ? 'checked' : '';?> type="radio" id="score-one" name="score-filter" value="1">
             <label for="score-two">2</label>
-            <input type="radio" id="score-two" name="score-filter" value="2">
+            <input <?php echo $usersScore == '2' ? 'checked' : '';?> type="radio" id="score-two" name="score-filter" value="2">
             <label for="score-three">3</label>
-            <input type="radio" id="score-three" name="score-filter" value="3">
+            <input <?php echo $usersScore == '3' ? 'checked' : '';?> type="radio" id="score-three" name="score-filter" value="3">
             <label for="score-four">4</label>
-            <input type="radio" id="score-four" name="score-filter" value="4">
+            <input <?php echo $usersScore == '4' ? 'checked' : '';?> type="radio" id="score-four" name="score-filter" value="4">
             <label for="score-five">5</label>
-            <input type="radio" id="score-five" name="score-filter" value="5">
+            <input <?php echo $usersScore == '5' ? 'checked' : '';?> type="radio" id="score-five" name="score-filter" value="5">
         </div>
         <button type="submit">Filter Search</button>
     </form>
