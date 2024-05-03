@@ -81,6 +81,7 @@
     <ul>
         <?php foreach ($hotels as $hotel) {
             $parking = $hotel['parking'] ? 'available' : 'not available';
+            // Lista hotel senza filtri selezionati
             if ((empty($parkingChoice) || $parkingChoice === '') && (empty($usersScore) || $usersScore === '')) {?>
                 <li>
                     <div>Hotel name: <?php echo $hotel['name']; ?></div>
@@ -89,6 +90,7 @@
                     <div>Hotel users vote: <?php echo $hotel['vote']; ?>/5</div>
                     <div>Hotel distance to center: <?php echo $hotel['distance_to_center']; ?> km</div>
                 </li>
+            <!-- Lista hotel con il solo score selezionato -->
             <?php } else if((empty($parkingChoice) || $parkingChoice === '') && ($hotel['vote'] >= $usersScoreNumber)){ ?>
                <li>
                     <div>Hotel name: <?php echo $hotel['name']; ?></div>
@@ -97,6 +99,7 @@
                     <div>Hotel users vote: <?php echo $hotel['vote']; ?>/5</div>
                     <div>Hotel distance to center: <?php echo $hotel['distance_to_center']; ?> km</div>
                 </li> 
+            <!-- Lista di hotel con il parcheggio available e score -->
             <?php } else if(($parkingChoice == 'true' && $parking == 'available') && ($hotel['vote'] >= $usersScoreNumber)){ ?>
                <li>
                     <div>Hotel name: <?php echo $hotel['name']; ?></div>
@@ -105,6 +108,7 @@
                     <div>Hotel users vote: <?php echo $hotel['vote']; ?>/5</div>
                     <div>Hotel distance to center: <?php echo $hotel['distance_to_center']; ?> km</div>
                 </li> 
+            <!-- Lista di hotel con il parcheggio not available e score -->
             <?php } else if(($parkingChoice == 'false' && $parking == 'not available') && ($hotel['vote'] >= $usersScoreNumber)){ ?>
                 <li>
                     <div>Hotel name: <?php echo $hotel['name']; ?></div>
